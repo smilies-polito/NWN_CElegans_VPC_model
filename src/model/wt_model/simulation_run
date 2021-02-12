@@ -1,0 +1,5 @@
+startsimulation ./src/model/systemnet_VPCelegans.sns systemnet_VPCelegans
+sleep 50
+simulation stop
+exit
+
