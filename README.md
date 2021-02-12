@@ -83,7 +83,7 @@ The model has been tested on Java 11 undel Linux.
 - Change dir to the folder containing the scripts of the desired model (e.g. scripts/wt_model for the wild-type condition)
 - Run the simulation by entering the command: `source launch_script.sh <number_of_simulations>` where `<number_of_simulations>` is an integer number indicating how many simulations to perform. 
 - The simulation creates a folder named `outputs`. The folder contains:
-	- One file named `cells<number>.csv` for each simulation containing ...
+	- One file named `cells<number>.csv` for each simulation containing the cells' states along simulation (every line is a sampling time, every column is a cell, the first six columns carry mpk1 states for the Pnp cells, the last six columns carry  lin12 states for Pnp cells). 
 	- One file named `cells_unlabeled<number>.arff` for each simulation. This is the file format used to exchange data beetween Renew and Weka. 
 	- One file named `fates.csv` containing the fate predictions (every line is a simulation.)
 
