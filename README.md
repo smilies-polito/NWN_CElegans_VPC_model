@@ -4,7 +4,7 @@ This repo contains a NWN model of the C. Elegans VPC development model.
 
 
 To run a simulation:
-- Open the termina
+- Open the terminal
 - In the scripts folder enter the folder of the condition you want to simulate.
 - Run the simulation by entering the command: source launch_script.sh <number_of_simulations>
 - The simulation creates a folder named outputs. The folder contains
@@ -15,7 +15,7 @@ To run a simulation:
 N.B. Every time you run the simulation the output file is erased and recreated. Move your results outside if you want to keep them.
 
 
-
+<code>
 .
 ├── README.md
 ├── results
@@ -88,5 +88,4 @@ N.B. Every time you run the simulation the output file is erased and recreated. 
     │   └── model
     ├── weka.jar
     └── weka-src.jar
-
-67 directories, 261 files
+</code>
