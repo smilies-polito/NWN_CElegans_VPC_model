@@ -1,8 +1,8 @@
 # NWN\_CElegans\_VPC\_model
 
-This reposity contains a computational model of The Vulval Pre-cursor Cells (VPC) specification between the L3 and L4 stages of larval  development C. El-egans. 
+This reposity contains a computational model of The Vulval Precursor Cells (VPC) specification between the L3 and L4 stages of larval  development in C. Elegans. 
 
-The model is based on the use of Nets-Within-Nets Petri Nets formalism. Its goal is to show the potential of this formalism in the description and simulation of ontogentic processes.
+The model is based on the use of the Nets-Within-Nets Petri Nets formalism. Its goal is to show the potential of this formalism in the description and simulation of ontogenetic processes.
 
 For details refer to:
 <insert reference to paper on BioArxiv.
