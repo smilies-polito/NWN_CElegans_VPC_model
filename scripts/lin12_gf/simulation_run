@@ -1,0 +1,4 @@
+startsimulation ../../src/model/lin12_gf_model/VPC_CElegans_spatial_grid.sns VPC_CElegans_spatial_grid 
+sleep 50
+simulation stop
+exit
