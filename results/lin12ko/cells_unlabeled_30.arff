@@ -1,0 +1,14 @@
+@RELATION cells_unlabeled.arff 
+
+@ATTRIBUTE mpk1_t0 NUMERIC
+@ATTRIBUTE lin12_t0 NUMERIC
+@ATTRIBUTE class  {Primary-fate,Secondary-fate,Tertiary-fate}
+
+
+@data
+0.060939060939060936,0.0,?
+0.0,0.0,?
+136.15084915084915,0.0,?
+390.8931068931069,0.0,?
+193.45054945054946,0.0,?
+0.0,0.0,?
