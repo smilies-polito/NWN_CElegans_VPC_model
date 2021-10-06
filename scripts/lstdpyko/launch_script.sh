@@ -11,7 +11,7 @@ mkdir outputs
 counter=1
 while [ $counter -le $1 ]
 do 
-    java -Dde.renew.netPath=../../src/model/wt_model/ -Dde.renew.classPath=../../src/weka.jar:../.. -jar ../../src/renew2.5.1/loader.jar script simulation_run 2> /dev/null
+    java -Dde.renew.netPath=../../src/model/lstdpyko_model/ -Dde.renew.classPath=../../src/weka.jar:../.. -jar ../../src/renew2.5.1/loader.jar script simulation_run 2> /dev/null
     
     mv ./cells.csv ./outputs/cells_$counter.csv
     mv ./cells_unlabeled.arff ./outputs/cells_unlabeled_$counter.arff

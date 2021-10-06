@@ -18,9 +18,11 @@ https://www.biorxiv.org/content/10.1101/2021.02.15.430983v2.
 └── src
     ├── model
     │   ├── collect_and_assemble.class
+    │   ├── collect_and_assemble$Cell
     │   ├── collect_and_assemble.java                               //Java class used within the fate manager to perform the classification 
+    │   ├── compileclass.sh			                               // script to compile the collect_and_assemble class for renew		
     │   ├── lin12_ko_model                                          //Same organization as wt_model
-    │   │   ├── fates_collection_lin12_ko.csv
+    │   │   ├── LIN3.rnw
     │   │   ├── VPC_CElegans_ac.rnw
     │   │   ├── VPC_CElegans_cell_building_blocks.rnw
     │   │   ├── VPC_CElegans_hyp7.rnw
@@ -28,7 +30,7 @@ https://www.biorxiv.org/content/10.1101/2021.02.15.430983v2.
     │   │   ├── VPC_CElegans_spatial_grid.sns
     │   │   └── VPC_CElegans_states_landscape.rnw
     │   ├── lst_lf_dpy23_lf                                         //Same organization as wt_model
-    │   │   ├── fates_collection_lstkodyp23ko.csv
+    │   │   ├── LIN3.rnw
     │   │   ├── VPC_CElegans_ac.rnw
     │   │   ├── VPC_CElegans_cell_building_blocks.rnw
     │   │   ├── VPC_CElegans_hyp7.rnw
@@ -36,7 +38,7 @@ https://www.biorxiv.org/content/10.1101/2021.02.15.430983v2.
     │   │   ├── VPC_CElegans_spatial_grid.sns
     │   │   └── VPC_CElegans_states_landscape.rnw
     │   ├── lst_lf_model                                            //Same organization as wt_model
-    │   │   ├── fates_collection_lst_lf.csv
+    │   │   ├── LIN3.rnw
     │   │   ├── VPC_CElegans_ac.rnw
     │   │   ├── VPC_CElegans_cell_building_blocks.rnw
     │   │   ├── VPC_CElegans_hyp7.rnw
@@ -44,7 +46,7 @@ https://www.biorxiv.org/content/10.1101/2021.02.15.430983v2.
     │   │   ├── VPC_CElegans_spatial_grid.sns
     │   │   └── VPC_CElegans_states_landscape.rnw
     │   ├── vul_ko_model                                            //Same organization as wt_model
-    │   │   ├── fates_collection_vul_ko.csv
+    │   │   ├── LIN3.rnw
     │   │   ├── VPC_CElegans_ac.rnw
     │   │   ├── VPC_CElegans_cell_building_blocks.rnw
     │   │   ├── VPC_CElegans_hyp7.rnw
@@ -52,22 +54,18 @@ https://www.biorxiv.org/content/10.1101/2021.02.15.430983v2.
     │   │   ├── VPC_CElegans_spatial_grid.sns
     │   │   └── VPC_CElegans_states_landscape.rnw
     │   ├── wt_model                                                //The wild-type model
+    │   │   ├── LIN3.rnw					                        //The LIN3 net-token
     │   │   ├── VPC_CElegans_ac.rnw                                 //The AC net-token 
     │   │   ├── VPC_CElegans_cell_building_blocks.rnw               //The Pnp net-token
     │   │   ├── VPC_CElegans_hyp7.rnw                               //The Hyp7 cell net-token
     │   │   ├── VPC_CElegans_spatial_grid.rnw                       //The system-net
     │   │   ├── VPC_CElegans_spatial_grid.sns                       //The compiled model (.sns, Shadow Net System)
-    │   │    └── VPC_CElegans_states_landscape.rnw                  //The Fates Manager (FM) net-token
+    │   │   └── VPC_CElegans_states_landscape.rnw                   //The Fates Manager (FM) net-token
     │   └── Figures                                                 //The Figures of the wild-type model
     │       ├── VPC_CElegans_ac.pdf                                 //The AC net-token figure in pdf 
-    │       ├── VPC_CElegans_ac.rnw                                 //The AC net-token figure in Renew 
     │       ├── VPC_CElegans_cell_building_blocks.pdf               //The Pnp net token figure in pdf 
-    │       ├── VPC_CElegans_cell_building_blocks.rnw               //The Pnp net-token figure in Renew 
     │       ├── VPC_CElegans_hyp7.pdf                               //The Hyp7 cell net-token  figure in pdf 
-    │       ├── VPC_CElegans_hyp7.rnw                               //The Hyp7 cell net-token  figure in Renew 
     │       ├── VPC_CElegans_spatial_grid.pdf                       //The system-net figure in pdf 
-    │       ├── VPC_CElegans_spatial_grid.rnw                       //The system-net figure in Renew 
-    │       └── VPC_CElegans_states_landscape.rnw                   //The Fates Manager (FM) net-token
     ├── renew2.5.1                                                  // Renew v2.5.1 jar required to run simulations
     ├── weka.jar                                                    // Weka jar required to implement the FM
     └── weka-src.jar                                                // Weka-src jar required to implement the FM
@@ -85,8 +83,9 @@ The model has been tested on Java 11 under Linux.
 - Change dir to the folder containing the scripts of the desired model (e.g. scripts/wt_model for the wild-type condition).
 - Run the simulation by entering the command: `source launch_script.sh <number_of_simulations>` where `<number_of_simulations>` is an integer number indicating how many simulations to perform. 
 - The simulation creates a folder named `outputs`. The folder contains:
-	- One file named `cells<number>.csv` for each simulation containing the cells' states along simulation (every line is a sampling time, every column is a cell, the first six columns carry mpk1 states for the Pnp cells, the last six columns carry  lin12 states for Pnp cells).
-	- One file named `cells_unlabeled<number>.arff` for each simulation. This is the file format used to exchange data beetween Renew and Weka. 
+	- One file named `Simulation_<number>.log` for each simulation containing full log of the simulation generated by Renew. This log can be used to reconstruct signal traces.
+	- One file named `cells_unlabeled_<number>.arff` for each simulation. This is the file format used to exchange data beetween Renew and Weka. 
 	- One file named `fates.csv` containing the fate predictions (every line is a simulation).
 
 > N.B. Every time you run the simulation the output file is erased and recreated. Move your results outside if you want to keep them.
+
